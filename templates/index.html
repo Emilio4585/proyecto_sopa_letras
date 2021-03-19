@@ -66,12 +66,14 @@
 
 
      <div class="panel panel-default">
-     <div class="panel-heading ocultar"><h4>2.- Crea la sopa e imprimela o simplemente resuelvela online</h4></div>
+     <div class="panel-heading ocultar"><h4>2.- Crea la sopa e imprimela</h4></div>
     <div class="panel-body">
     <div class="ocultar">
     <button onclick="Crear();" class="btn btn-success btn-lg"> Crear Juego</button>
     <button onclick="window.print();" class="btn btn-info btn-lg "> Imprimir</button>
-    <button id='solve' class="btn btn-danger btn-lg" >  Resuelto</button-->
+    <button id='terminado' class="btn btn-danger btn-lg" >  Resuelto</button>
+
+    <button id='solve' class="btn btn-danger btn-lg" >  Resolver</button>
     <!--button id='solve' class="btn btn-danger btn-lg" >  Resolver</button-->
     <!-- <a href="#" class="btn btn-default btn-lg" > Descargar</a>-->
         </div>
@@ -123,8 +125,6 @@
       datos[5] = "{{ Dato6 }}"
       datos[6] = "{{ Dato7 }}"
       datos[7] = "{{ Dato8 }}"
-      datos[8] = "{{ Dato9 }}"
-      datos[9] = "{{ Dato10 }}"
 	    for (i = 0; i < (datos.length)-1; i++) {
 	       words.push(datos[i]);
 
@@ -134,12 +134,13 @@
 	    var puzzle = wordfind.newPuzzle(datos, { height: 18, width: 18, fillBlanks: false });
         wordfind.print(puzzle);   
       }
-		$('#solve').click( function() {
+		$('#terminado').click( function() {
       datos = mytag[0].textContent.trim().split("×");
       equipo = datos[0]
       alert("Felicidades al equipo: " +  equipo)
+      
       });
-    
+      $('#solve').click( function() {wordfindgame.solve(gamePuzzle, words);});
     </script>
     </div>
 </body>

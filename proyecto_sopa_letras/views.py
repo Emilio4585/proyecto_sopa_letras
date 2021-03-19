@@ -5,15 +5,13 @@ class Template(TemplateView):
     def get_context_data(self, *args, **kwargs):
         #context = super(Home. self).get_context_data(*args, **kwargs)
         context = {
-            'Dato1': '1',
-            'Dato2': '2',
-            'Dato3': '3',
-            'Dato4': '4',
-            'Dato5': '5',
-            'Dato6': '6',
-            'Dato7': '7',
-            'Dato8': '8',
-            'Dato9': '9',
-            'Dato10': '10',
+            'Dato1': 'analisis',
+            'Dato2': 'sintesis',
+            'Dato3': 'the take away',
+            'Dato4': 'historias de usuarios',
+            'Dato5': 'Mapa de empatia',
+            'Dato6': 'Personas',
+            'Dato7': 'Definicion del problema ',
+            'Dato8': 'etapa de definición',
         }
         return context
