@@ -1,0 +1,146 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sopa de letras</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"  media="all">
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" >
+<link rel="stylesheet" type="text/css" href="{% static 'jquery-ui.css' %}">
+<link href="{% static 'jquery.tagit.css' %}" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="{% static 'jquery.min.js' %}"></script> 
+<script type="text/javascript" src="{% static 'wordfind.js' %}"></script> 
+<script type="text/javascript" src="{% static 'wordfindgame.js' %}"></script> 
+<script type="text/javascript" src="{% static 'bootstrap.min.js' %}" ></script>
+<script type="text/javascript" src="{% static 'jquery-ui.min.js' %}"  ></script>
+<script type="text/javascript" src="{% static 'tag-it.js' %}"></script>
+
+
+</head>
+<body>
+    <style media="print">.ocultar {display:none;}.col-md-3 { width: 25%;float: left;}.col-md-9 {width: 75%;float: left;}
+    </style>
+
+<div class="container">
+    <div class="row">
+        
+        <script type="text/javascript">
+            var mytag;
+            $(document).ready(function () {
+                mytag = $("#myTags").tagit({});
+				Crear();
+            });
+</script>
+<div class="row  ocultar text-center">
+    <br />
+    <div class="panel panel-default">
+    <div class="panel-heading"><h4>1.- Escribe el nombre de tu equipo y luego <strong>"Crear Juego"</strong></h4></div>
+    <div class="panel-body"><ul id="myTags">
+
+</ul></div>
+  </div>
+
+
+
+
+    </div>
+    
+
+ 
+<div class="row text-center">
+<div class="ocultar">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Header -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-4331617637495482"
+     data-ad-slot="2764029251"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br/><br/>
+</div>
+<div>
+
+<div class="row">
+
+
+     <div class="panel panel-default">
+     <div class="panel-heading ocultar"><h4>2.- Crea la sopa e imprimela o simplemente resuelvela online</h4></div>
+    <div class="panel-body">
+    <div class="ocultar">
+    <button onclick="Crear();" class="btn btn-success btn-lg"> Crear Juego</button>
+    <button onclick="window.print();" class="btn btn-info btn-lg "> Imprimir</button>
+    <button id='solve' class="btn btn-danger btn-lg" >  Resuelto</button-->
+    <!--button id='solve' class="btn btn-danger btn-lg" >  Resolver</button-->
+    <!-- <a href="#" class="btn btn-default btn-lg" > Descargar</a>-->
+        </div>
+        <div class="row">
+
+
+        <div class="col-md-3">
+                        <div id='Palabras'></div>
+
+        </div>
+                <div class="col-md-9">
+                        <div id='juego'></div>
+
+                </div>
+         </div>
+        
+        
+
+        
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+	
+</div>
+
+
+    
+    
+    
+    <script>
+    var words = [];
+	var gamePuzzle;
+	function Crear() {
+    
+	    datos = mytag[0].textContent.trim().split("×");
+      datos[0] = "{{ Dato1 }}"
+      datos[1] = "{{ Dato2 }}"
+      datos[2] = "{{ Dato3 }}"
+      datos[3] = "{{ Dato4 }}"
+      datos[4] = "{{ Dato5 }}"
+      datos[5] = "{{ Dato6 }}"
+      datos[6] = "{{ Dato7 }}"
+      datos[7] = "{{ Dato8 }}"
+      datos[8] = "{{ Dato9 }}"
+      datos[9] = "{{ Dato10 }}"
+	    for (i = 0; i < (datos.length)-1; i++) {
+	       words.push(datos[i]);
+
+	    }
+	    $('#Juegos').show();
+	    gamePuzzle = wordfindgame.create(datos, '#juego', '#Palabras');
+	    var puzzle = wordfind.newPuzzle(datos, { height: 18, width: 18, fillBlanks: false });
+        wordfind.print(puzzle);   
+      }
+		$('#solve').click( function() {
+      datos = mytag[0].textContent.trim().split("×");
+      equipo = datos[0]
+      alert("Felicidades al equipo: " +  equipo)
+      });
+    
+    </script>
+    </div>
+</body>
+</html>
